@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <h1><a href="{% url 'new' %}">글쓰기</a></h1>
+    <hr>
+    <h3>현재 글 목록</h3>
+    {% for post in posts.all %}
+        <div>
+            <h2><a href="{% url 'detail' post.id %}">{{post.title}}</a></h2>
+            <br>
+            <p>{{post.created_date}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
